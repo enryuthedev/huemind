@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HueMind - Fortschritt</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Subtle ambient shadow for soft minimalism */
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Chart Line Animation */
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+        .chart-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 1.5s ease-out forwards;
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f4f0ef",
+                    "on-surface-variant": "#444748",
+                    "surface-container": "#f1edec",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#464747",
+                    "on-primary-container": "#858383",
+                    "secondary-container": "#e1dfdf",
+                    "tertiary-container": "#1c1b1a",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#1c1b1a",
+                    "background": "#fdf8f8",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-container-high": "#ebe7e6",
+                    "tertiary-fixed-dim": "#cac6c4",
+                    "on-tertiary-container": "#868382",
+                    "error-container": "#ffdad6",
+                    "primary": "#000000",
+                    "surface-container-highest": "#e5e2e1",
+                    "inverse-primary": "#c8c6c5",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e5e2e1",
+                    "primary-container": "#1c1b1b",
+                    "surface-dim": "#ddd9d8",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fdf8f8",
+                    "surface-container-low": "#f7f3f2",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#626262",
+                    "tertiary": "#000000",
+                    "primary-fixed": "#e5e2e1",
+                    "on-background": "#1c1b1b",
+                    "secondary": "#5e5e5e",
+                    "outline": "#747878",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "tertiary-fixed": "#e6e2df",
+                    "surface-tint": "#5f5e5e",
+                    "surface-bright": "#fdf8f8",
+                    "inverse-surface": "#313030",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "secondary-fixed": "#e4e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "stack-gap-lg": "48px",
+                    "max-width-desktop": "1200px",
+                    "stack-gap-md": "24px",
+                    "stack-gap-sm": "12px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-caps": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "display": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+                    "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }],
+                    "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen pb-24 selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-background w-full top-0 sticky z-40">
+<div class="flex items-center justify-between px-container-padding h-16 w-full max-w-desktop mx-auto">
+<button aria-label="Back" class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display text-headline-md text-primary tracking-tight">HueMind</h1>
+<div class="w-6"></div> <!-- Spacer for center alignment -->
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-desktop mx-auto px-container-padding pt-stack-gap-md pb-stack-gap-lg">
+<!-- Header Section -->
+<div class="mb-stack-gap-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-primary mb-2">Dein Fortschritt</h2>
+<p class="font-body-md text-secondary">Analysiere deine kognitive Farberkennung der letzten 7 Tage.</p>
+</div>
+<!-- Progress Chart Card (Hero) -->
+<section class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-6 mb-stack-gap-md">
+<div class="flex justify-between items-baseline mb-6">
+<h3 class="font-label-caps text-secondary uppercase">Wöchentliche Serie</h3>
+<span class="font-body-md text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">local_fire_department</span>
+                    Aktuell: 12 Tage
+                </span>
+</div>
+<!-- Minimal SVG Line Chart -->
+<div class="w-full h-32 relative">
+<svg class="overflow-visible" height="100%" preserveaspectratio="none" viewbox="0 0 400 100" width="100%">
+<!-- Grid Lines (Subtle) -->
+<line class="text-surface-variant" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="400" y1="25" y2="25"></line>
+<line class="text-surface-variant" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="400" y1="50" y2="50"></line>
+<line class="text-surface-variant" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="400" y1="75" y2="75"></line>
+<!-- Data Line -->
+<path class="text-primary chart-path" d="M0,80 Q50,60 100,70 T200,40 T300,50 T400,20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+<!-- Data Points -->
+<circle class="text-primary" cx="0" cy="80" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="100" cy="70" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="200" cy="40" fill="currentColor" r="4"></circle>
+<circle class="text-primary" cx="300" cy="50" fill="currentColor" r="4"></circle>
+<circle class="text-tertiary shadow-sm" cx="400" cy="20" fill="currentColor" r="6"></circle>
+</svg>
+</div>
+<div class="flex justify-between mt-4 font-label-caps text-secondary opacity-60">
+<span>Mo</span>
+<span>Di</span>
+<span>Mi</span>
+<span>Do</span>
+<span>Fr</span>
+<span>Sa</span>
+<span>So</span>
+</div>
+</section>
+<!-- Bento Grid for Stats -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-stack-gap-md">
+<!-- Avg Score -->
+<div class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-5 flex flex-col justify-between aspect-square">
+<span class="font-label-caps text-secondary uppercase tracking-widest">Ø Score</span>
+<div>
+<div class="font-display text-display text-primary leading-none">84<span class="text-headline-md text-secondary ml-1">%</span></div>
+<div class="font-label-caps text-tertiary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +2.4%
+                    </div>
+</div>
+</div>
+<!-- Best Score -->
+<div class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-5 flex flex-col justify-between aspect-square">
+<span class="font-label-caps text-secondary uppercase tracking-widest">Bester Score</span>
+<div class="font-display text-display text-primary leading-none">98<span class="text-headline-md text-secondary ml-1">%</span></div>
+</div>
+<!-- Rounds Played -->
+<div class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-5 flex flex-col justify-between aspect-square">
+<span class="font-label-caps text-secondary uppercase tracking-widest">Gespielte Runden</span>
+<div class="font-display text-display text-primary leading-none">142</div>
+</div>
+<!-- Best Color -->
+<div class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-5 flex flex-col justify-between aspect-square">
+<span class="font-label-caps text-secondary uppercase tracking-widest">Beste Farbe</span>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full shadow-inner" style="background-color: #4A90E2;"></div>
+<span class="font-body-lg text-primary">Blau</span>
+</div>
+</div>
+<!-- Hardest Hue (Spans 2 columns on mobile) -->
+<div class="bg-surface rounded-xl ambient-shadow border border-surface-variant p-5 flex items-center justify-between col-span-2">
+<div>
+<span class="font-label-caps text-secondary uppercase tracking-widest block mb-2">Schwierigster Farbton</span>
+<span class="font-body-lg text-primary">Teal / Türkis</span>
+</div>
+<div class="w-16 h-16 rounded-full shadow-inner border border-surface-variant" style="background-color: #38B2AC;"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Shared Component JSON) -->
+<!-- Applying Active State Logic: 'insights' matches 'Progress / Stats' screen -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 bg-surface shadow-lg rounded-t-xl md:hidden">
+<!-- Home (Inactive) -->
+<a class="flex items-center justify-center text-secondary p-3 hover:bg-surface-container-high rounded-full transition-colors group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-all duration-200" data-weight="regular">home</span>
+</a>
+<!-- Insights (ACTIVE) -->
+<a class="flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full p-3 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex items-center justify-center text-secondary p-3 hover:bg-surface-container-high rounded-full transition-colors group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-all duration-200" data-weight="regular">settings</span>
+</a>
+</nav>
+<!-- Web Desktop Navigation Overlay (Semantic Shell Mandate: Use TopAppBar cluster on WEB) -->
+<div class="hidden md:flex fixed top-0 right-0 h-16 items-center px-container-padding z-50 gap-4">
+<a class="text-secondary hover:text-primary transition-colors p-2" href="#"><span class="material-symbols-outlined">home</span></a>
+<a class="text-primary bg-secondary-container rounded-full p-2" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span></a>
+<a class="text-secondary hover:text-primary transition-colors p-2" href="#"><span class="material-symbols-outlined">settings</span></a>
+</div>
+</body></html>

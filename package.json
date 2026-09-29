@@ -1,0 +1,55 @@
+{
+  "name": "huemind",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "doctor": "npx expo-doctor",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo-google-fonts/manrope": "^0.2.3",
+    "@expo/vector-icons": "^15.1.1",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "^57.0.0",
+    "expo-constants": "~57.0.19",
+    "expo-font": "~57.0.4",
+    "expo-haptics": "~57.0.3",
+    "expo-linear-gradient": "~57.0.2",
+    "expo-linking": "~57.0.11",
+    "expo-localization": "~57.0.2",
+    "expo-router": "~57.0.23",
+    "expo-splash-screen": "~57.0.9",
+    "expo-status-bar": "~57.0.1",
+    "expo-system-ui": "~57.0.4",
+    "i18next": "^23.16.8",
+    "intl-pluralrules": "^2.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-i18next": "^15.7.4",
+    "react-native": "0.86.3",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-purchases": "^10.10.2",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "15.15.4",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@types/react": "~19.2.4",
+    "babel-preset-expo": "~57.0.0",
+    "typescript": "~5.9.2"
+  },
+  "expo": {
+    "install": {
+      "exclude": [
+        "typescript"
+      ]
+    }
+  },
+  "private": true
+}

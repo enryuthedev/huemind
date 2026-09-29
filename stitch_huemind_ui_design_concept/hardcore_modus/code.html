@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HueMind - Hardcore Mode Flow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f4f0ef",
+                      "on-surface-variant": "#444748",
+                      "surface-container": "#f1edec",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-primary-container": "#858383",
+                      "secondary-container": "#e1dfdf",
+                      "tertiary-container": "#1c1b1a",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#1c1b1a",
+                      "background": "#fdf8f8",
+                      "outline-variant": "#c4c7c7",
+                      "on-primary-fixed-variant": "#474746",
+                      "surface-container-high": "#ebe7e6",
+                      "tertiary-fixed-dim": "#cac6c4",
+                      "on-tertiary-container": "#868382",
+                      "error-container": "#ffdad6",
+                      "primary": "#000000",
+                      "surface-container-highest": "#e5e2e1",
+                      "inverse-primary": "#c8c6c5",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e5e2e1",
+                      "primary-container": "#1c1b1b",
+                      "surface-dim": "#ddd9d8",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fdf8f8",
+                      "surface-container-low": "#f7f3f2",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#626262",
+                      "tertiary": "#000000",
+                      "primary-fixed": "#e5e2e1",
+                      "on-background": "#1c1b1b",
+                      "secondary": "#5e5e5e",
+                      "outline": "#747878",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "tertiary-fixed": "#e6e2df",
+                      "surface-tint": "#5f5e5e",
+                      "surface-bright": "#fdf8f8",
+                      "inverse-surface": "#313030",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "secondary-fixed": "#e4e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "stack-gap-lg": "48px",
+                      "max-width-desktop": "1200px",
+                      "stack-gap-md": "24px",
+                      "stack-gap-sm": "12px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "label-caps": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-lg-mobile": ["Manrope"],
+                      "display": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                      "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F8F7F4;
+        }
+        
+        .color-card {
+            transition: all 0.1s ease-in-out;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        @keyframes pulse-intense {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.02); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+        
+        .intense-pulse {
+            animation: pulse-intense 0.5s infinite;
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -1px 0 rgba(255, 0, 0, 0.5);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+            clip: rect(24px, 550px, 90px, 0);
+        }
+        
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -1px 0 rgba(0, 0, 255, 0.5);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+            clip: rect(85px, 550px, 140px, 0);
+        }
+        
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(15px, 9999px, 83px, 0); }
+            20% { clip: rect(4px, 9999px, 55px, 0); }
+            40% { clip: rect(72px, 9999px, 16px, 0); }
+            60% { clip: rect(29px, 9999px, 66px, 0); }
+            80% { clip: rect(88px, 9999px, 9px, 0); }
+            100% { clip: rect(42px, 9999px, 78px, 0); }
+        }
+        
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(24px, 9999px, 15px, 0); }
+            40% { clip: rect(42px, 9999px, 86px, 0); }
+            60% { clip: rect(9px, 9999px, 56px, 0); }
+            80% { clip: rect(78px, 9999px, 29px, 0); }
+            100% { clip: rect(52px, 9999px, 48px, 0); }
+        }
+
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Top Navigation (Suppressed - Flow Screen) -->
+<header class="absolute top-0 w-full flex items-center justify-between px-container-padding h-16 max-w-desktop mx-auto z-10">
+<!-- Leading Icon -->
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+<!-- No Title, minimal distraction -->
+<div class="w-6"></div>
+</header>
+<main class="w-full max-w-md px-container-padding flex flex-col items-center justify-center flex-grow z-10">
+<!-- Headers -->
+<div class="text-center mb-stack-gap-lg w-full">
+<h1 class="font-display text-display text-primary tracking-tight mb-stack-gap-sm glitch-text" data-text="Ablenkphase">Ablenkphase</h1>
+<p class="font-body-lg text-body-lg text-secondary">Nicht merken – nur beobachten.</p>
+</div>
+<!-- Fast Changing Grid Container -->
+<div class="relative w-full aspect-square max-w-[320px] mb-stack-gap-lg">
+<!-- Stacked Cards Effect behind the main grid to create depth -->
+<div class="absolute inset-0 rounded-[28px] bg-secondary-container transform scale-95 translate-y-4 opacity-50"></div>
+<div class="absolute inset-0 rounded-[28px] bg-surface-container-highest transform scale-90 translate-y-8 opacity-30"></div>
+<!-- Main Interactive Grid Area -->
+<div class="relative w-full h-full rounded-[28px] bg-surface-container overflow-hidden grid grid-cols-3 grid-rows-3 gap-2 p-2 shadow-lg z-10 border border-outline-variant/30" id="color-grid">
+<!-- Grid items generated by JS -->
+</div>
+<!-- Progress Ring Overlay (Subtle) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none transform -rotate-90 z-20" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="48" stroke="rgba(28, 27, 27, 0.05)" stroke-width="2"></circle>
+<circle class="transition-all duration-100 ease-linear" cx="50" cy="50" fill="none" id="timer-progress" r="48" stroke="#1c1b1b" stroke-dasharray="301.59" stroke-dashoffset="0" stroke-width="4"></circle>
+</svg>
+</div>
+</main>
+<!-- Bottom Navigation (Suppressed - Flow Screen) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gridContainer = document.getElementById('color-grid');
+            const progressCircle = document.getElementById('timer-progress');
+            const totalDuration = 5000; // 5 seconds for this phase
+            let startTime = null;
+
+            // Soft minimalist palette for intense phase (slightly bolder than usual but still soft)
+            const colors = [
+                '#FF6B6B', '#4ECDC4', '#FFE66D', '#292F36', 
+                '#F7FFF7', '#FF8C42', '#3185FC', '#E84855',
+                '#9D4EDD', '#F4A261', '#2A9D8F', '#E76F51'
+            ];
+
+            // Create initial grid
+            for (let i = 0; i < 9; i++) {
+                const tile = document.createElement('div');
+                tile.className = 'rounded-xl color-card h-full w-full opacity-80';
+                tile.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                gridContainer.appendChild(tile);
+            }
+
+            const tiles = gridContainer.children;
+
+            // Fast flashing logic
+            function flashColors() {
+                // Change 3-5 random tiles very quickly
+                const numChanges = Math.floor(Math.random() * 3) + 3;
+                for(let i=0; i<numChanges; i++) {
+                    const randomTileIndex = Math.floor(Math.random() * tiles.length);
+                    const randomColorIndex = Math.floor(Math.random() * colors.length);
+                    
+                    tiles[randomTileIndex].style.backgroundColor = colors[randomColorIndex];
+                    
+                    // Subtle scale bump for intensity
+                    tiles[randomTileIndex].style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        if(tiles[randomTileIndex]) {
+                            tiles[randomTileIndex].style.transform = 'scale(1)';
+                        }
+                    }, 50);
+                }
+            }
+
+            // Interval for fast changes (very fast for hardcore mode)
+            const flashInterval = setInterval(flashColors, 150);
+
+            // Timer logic for progress ring
+            function updateProgress(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / totalDuration, 1);
+                
+                // circumference is 2 * pi * 48 ~= 301.59
+                const dashoffset = 301.59 * (1 - progress);
+                progressCircle.style.strokeDashoffset = dashoffset;
+
+                // Add intense pulse effect near the end
+                if (progress > 0.8) {
+                    gridContainer.classList.add('intense-pulse');
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateProgress);
+                } else {
+                    clearInterval(flashInterval);
+                    gridContainer.classList.remove('intense-pulse');
+                    // Transition to next state here
+                }
+            }
+
+            requestAnimationFrame(updateProgress);
+        });
+    </script>
+</body></html>

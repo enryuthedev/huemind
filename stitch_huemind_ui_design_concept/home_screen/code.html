@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HueMind - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#ffffff",
+                      "inverse-on-surface": "#f4f0ef",
+                      "on-surface-variant": "#444748",
+                      "surface-container": "#f1edec",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#1c1b1b",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-primary-container": "#858383",
+                      "secondary-container": "#e1dfdf",
+                      "tertiary-container": "#1c1b1a",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#1c1b1a",
+                      "background": "#fdf8f8",
+                      "outline-variant": "#c4c7c7",
+                      "on-primary-fixed-variant": "#474746",
+                      "surface-container-high": "#ebe7e6",
+                      "tertiary-fixed-dim": "#cac6c4",
+                      "on-tertiary-container": "#868382",
+                      "error-container": "#ffdad6",
+                      "primary": "#000000",
+                      "surface-container-highest": "#e5e2e1",
+                      "inverse-primary": "#c8c6c5",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#e5e2e1",
+                      "primary-container": "#1c1b1b",
+                      "surface-dim": "#ddd9d8",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#fdf8f8",
+                      "surface-container-low": "#f7f3f2",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#626262",
+                      "tertiary": "#000000",
+                      "primary-fixed": "#e5e2e1",
+                      "on-background": "#1c1b1b",
+                      "secondary": "#5e5e5e",
+                      "outline": "#747878",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "tertiary-fixed": "#e6e2df",
+                      "surface-tint": "#5f5e5e",
+                      "surface-bright": "#fdf8f8",
+                      "inverse-surface": "#313030",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "secondary-fixed": "#e4e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "stack-gap-lg": "48px",
+                      "max-width-desktop": "1200px",
+                      "stack-gap-md": "24px",
+                      "stack-gap-sm": "12px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Manrope"
+                      ],
+                      "label-caps": [
+                              "Manrope"
+                      ],
+                      "body-lg": [
+                              "Manrope"
+                      ],
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "display": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .ambient-shadow {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        
+        .gradient-orb {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1);
+            background-size: 300% 300%;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-background flex items-center justify-between px-container-padding h-16 max-w-desktop mx-auto z-40 relative md:hidden">
+<button class="text-primary hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full active:scale-95 transition-transform duration-200">
+<!-- Spacer for center alignment -->
+</button>
+<h1 class="font-display text-headline-md text-primary tracking-tight absolute left-1/2 -translate-x-1/2">HueMind</h1>
+<div class="w-10"></div> <!-- Spacer -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-container-padding max-w-desktop mx-auto w-full gap-stack-gap-lg py-8">
+<!-- Web Top Nav (Hidden on Mobile) -->
+<div class="hidden md:flex w-full justify-center mb-8">
+<h1 class="font-display text-display text-primary tracking-tight">HueMind</h1>
+</div>
+<!-- The Orb (Visual Anchor) -->
+<div class="w-48 h-48 md:w-64 md:h-64 rounded-full gradient-orb ambient-shadow flex items-center justify-center relative overflow-hidden transition-transform hover:scale-[1.02] duration-300">
+<!-- Inner glow/blur effect to soften -->
+<div class="absolute inset-0 rounded-full shadow-[inset_0_0_40px_rgba(253,248,248,0.4)]"></div>
+</div>
+<!-- Welcome Text -->
+<div class="text-center max-w-md mx-auto flex flex-col gap-unit">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">
+                Wie gut ist dein Farbgedächtnis?
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Merke dir Farben, triff den richtigen Ton und verbessere deinen Score.
+            </p>
+</div>
+<!-- Main Actions -->
+<div class="flex flex-col w-full max-w-xs gap-stack-gap-sm">
+<button class="bg-primary text-on-primary font-headline-md text-headline-md py-4 px-8 rounded-[20px] ambient-shadow hover:scale-[0.98] transition-transform duration-200 w-full">
+                Spiel starten
+            </button>
+<button class="bg-surface-container-high text-primary font-headline-md text-headline-md py-4 px-8 rounded-[20px] hover:bg-surface-variant transition-colors duration-200 w-full">
+                Modi ansehen
+            </button>
+</div>
+<!-- Stats Section -->
+<div class="grid grid-cols-3 gap-stack-gap-sm w-full max-w-md mt-4">
+<!-- Stat 1 -->
+<div class="bg-surface rounded-lg p-4 flex flex-col items-center justify-center gap-1 ambient-shadow">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">trophy</span>
+<span class="font-label-caps text-label-caps text-secondary text-center uppercase">Bester Score</span>
+<span class="font-headline-md text-headline-md text-primary">12,450</span>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface rounded-lg p-4 flex flex-col items-center justify-center gap-1 ambient-shadow">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">local_fire_department</span>
+<span class="font-label-caps text-label-caps text-secondary text-center uppercase">Aktuelle Serie</span>
+<span class="font-headline-md text-headline-md text-primary">5</span>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface rounded-lg p-4 flex flex-col items-center justify-center gap-1 ambient-shadow">
+<span class="material-symbols-outlined text-secondary text-[20px] mb-1">replay</span>
+<span class="font-label-caps text-label-caps text-secondary text-center uppercase">Gespielte Runden</span>
+<span class="font-headline-md text-headline-md text-primary">142</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 bg-surface shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] rounded-t-xl md:hidden">
+<!-- Home (Active) -->
+<button class="flex flex-col items-center justify-center group active:scale-90 transition-all duration-200">
+<div class="flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-full p-3 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+</button>
+<!-- Insights (Inactive) -->
+<button class="flex flex-col items-center justify-center group active:scale-90 transition-all duration-200">
+<div class="flex items-center justify-center text-secondary p-3 hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined">insights</span>
+</div>
+</button>
+<!-- Settings (Inactive) -->
+<button class="flex flex-col items-center justify-center group active:scale-90 transition-all duration-200">
+<div class="flex items-center justify-center text-secondary p-3 hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</button>
+</nav>
+</body></html>

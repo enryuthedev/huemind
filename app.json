@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "HueMind",
+    "slug": "huemind",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "huemind",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icon.png",
+    "backgroundColor": "#FDF8F8",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "de.pakumedia.huemind",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "de.pakumedia.huemind",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FDF8F8"
+      },
+      "versionCode": 1
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "resizeMode": "contain",
+          "backgroundColor": "#FDF8F8"
+        }
+      ],
+      "expo-status-bar"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
